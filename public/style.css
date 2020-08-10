@@ -1,0 +1,83 @@
+
+.login
+{
+    float: right;
+    margin-right: 100px;
+    padding: 20px 20px 50px 20px;
+}
+
+.signup
+{
+    float: right;
+    margin-right: 100px; 
+    padding: 20px 20px 50px 20px;
+}
+
+.loggout
+{
+    float: right;
+    margin-right: 100px; 
+    padding: 20px 20px 50px 20px;
+}
+
+
+input[type="submit"]
+{
+    float: center;
+    padding: 7px 20px;
+    font-size: 1.06em;
+    background-color: #0796cf;
+    color: #fff;
+    border: 1px solid #0285b9;
+}
+
+input[type="text"], input[type="password"], input[type="email"]
+{
+    padding: 8px 5px;
+    margin: 0 0 5px 5px;
+    min-width: 270px;
+    font-size: 1.05em;
+    background-color: #F5F5F5;
+    border: 1px solid #ccc;
+}  
+
+.container {
+    display: inline-block;
+}
+
+.grid {
+    margin-left: 250px;
+    margin-right: 250px;
+    display: grid;
+    grid-template-columns: repeat(4, 220px);
+    grid-template-rows: repeat(26, 300px);
+    grid-gap: 20px;
+}
+
+.cell {
+    border: solid black;
+    justify-content: center;
+    font text-align: center;
+    font-family: Arial;
+    background: white;
+}
+table{
+    border-spacing: 0px 20px;
+}
+
+td {
+    justify-content: center;
+    font text-align: center;
+    font-family: Arial;
+    background: white;
+}
+
+div.buying{
+     border: solid black;
+     justify-content: center;
+    font text-align: center;
+    font-family: Arial;
+    background: white;
+    margin-left: 400px;
+    margin-right: 400px;
+}

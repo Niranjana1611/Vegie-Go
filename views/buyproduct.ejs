@@ -1,0 +1,30 @@
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>	
+<body style="background-color: #66CD00">
+	<div style="background-color: #ffba00"><br>
+	<form method="get" action="/loggout" class="loggout">
+			<input type="submit" name="loggout" value="LOGOUT">
+	</form>
+	<img src = "logo.png" height="100px" width="100px" style="float: left; margin-left: 100px;">
+	<h1 style="font-size: 40px; color: brown; font-style: italic; font-family: Comic Sans MS;">VegieGo</h1>
+	</div><br><br>
+	<section style="float: left; margin-left: 200px; font-family: Arial;"><i>Hi <%= username %></i></section>
+	<center><h1>THANKS FOR BUYING!</h1></center>
+	<center>
+	<form action="/ordered"  method="post">
+		<div class="buying">
+			<br><br>USERNAME : <%= username %><br>
+			<br>TOTAL AMOUNT : <%= total %><br>
+			<br><strong>Note:</strong>Pay by cash on delivery<br>
+			<br>ADDRESS : <input type="text" name="address" placeholder="ADDRESS" required><br>
+			<br>PINCOCE : <input type="text" name="pincode" placeholder="PINCODE" required><br>
+			<br>RECEIVING DATE : <input type="date" name="recdate" placeholder="YYYY/MM/DD" required><br>
+			<br>RECEIVING TIME : <input type="time" name="rectime" min="06:00" max="22:00" required><br>
+			<br><strong>Note:</strong>Make sure ther is alteast 24 hours bifference between ordering date and recieveing date<br><br>
+		</div><br><br><br>
+		<input type="submit" name="SUBMIT">
+	</form></center>
+</body>
+</html>

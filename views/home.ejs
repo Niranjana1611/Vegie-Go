@@ -1,0 +1,46 @@
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>	
+<body style="background-color: #66CD00">
+	<div style="background-color: #ffba00"><br>
+	<form method="get" action="/loggout" class="loggout">
+			<input type="submit" name="loggout" value="LOGOUT">
+	</form>
+	<img src = "logo.png" height="100px" width="100px" style="float: left; margin-left: 100px;">
+	<h1 style="font-size: 40px; color: brown; font-style: italic; font-family: Comic Sans MS;">VegieGo</h1>
+	</div><br><br>
+	<section>
+		<section style="float: left; margin-left: 200px; font-family: Arial; font-size: 30px;"><i>Hi <%= username %></i></section>
+		<section style="float: right; margin-right: 200px; font-family: Arial">
+			<form action="/yourcart" method="post">
+				<input type="submit" value="Cart (<%= nos[0].countprdt %>)">
+			</form>
+		</section>
+		<section style="float: right; margin-right: 100px; font-family: Arial">
+			<form action="/bill" method="post">
+				<input type="submit" value="BILL">
+			</form>
+		</section>
+	</section>
+	<br><br>
+	<div class="container">
+		<div class="grid">
+			<% for(var i=0; i<items.length; i++) {%>
+				<div class="cell">
+					<center>
+					<br><img src="<%= items[i].image %>">
+					<br><br><%= items[i].name %><br>
+					<br>RATE: Rs.<%= items[i].rate %>/kg
+					<form action="/cart" method="post">
+						<input type="hidden" id="productimage" name="productimage" value="<%= items[i].image %>">
+						<input type="hidden" id="productname" name="productname" value="<%= items[i].name %>">
+						<input type="hidden" id="productrate" name="productrate" value="<%= items[i].rate %>">
+						<br><input type="submit" value="ADD TO CART">
+					</form></center>
+				</div>
+        	<% } %>
+		</div>
+	</div>
+</body>
+</html>

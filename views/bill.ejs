@@ -1,0 +1,41 @@
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>	
+<body style="background-color: #66CD00">
+	<div style="background-color: #ffba00"><br>
+	<form method="get" action="/loggout" class="loggout">
+			<input type="submit" name="loggout" value="LOGOUT">
+	</form>
+	<img src = "logo.png" height="100px" width="100px" style="float: left; margin-left: 100px;">
+	<h1 style="font-size: 40px; color: brown; font-style: italic; font-family: Comic Sans MS;">VegieGo</h1>
+	</div><br><br>
+		<section style="float: left; margin-left: 200px; font-family: Arial;"><i>Hi <%= username %></i></section>
+		<section style= "float: right; margin-right: 100px; padding: 20px 20px 50px 20px;">
+			<form action="/home" method="get">
+				<input type="submit" value="HOME">
+			</form>
+		</section>
+	<center><h1>YOUR BILL</h1></center><br><br>
+	<section style="margin-left: 200px;"><table style="background-color: white; border: solid black;">
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;AMOUNT&nbsp;&nbsp;&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;ADDRESS&nbsp;&nbsp;&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;PINCODE&nbsp;&nbsp;&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;ORDERED DATE&nbsp;&nbsp;&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;ORDERED TIME&nbsp;&nbsp;&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;DELIVERED DATE&nbsp;&nbsp;&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;DELIVERED TIME&nbsp;&nbsp;&nbsp;&nbsp;</th>
+			<% for(var i=0; i<info.length; i++) {%>
+				<tr>
+					<td><center><%= info[i].totalamt %></center></td>
+					<td><center><%= info[i].address %>/kg</center></td>
+					<td><center><%= info[i].pincode %></center></td>
+					<td><center><%= info[i].orderdate %></center></td>
+					<td><center><%= info[i].ordertime %></center></td>
+					<td><center><%= info[i].recdate %></center></td>
+					<td><center><%= info[i].rectime %></center></td>
+				</tr>
+        	<% } %>
+	</table></section>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>	
+<body style="background-color: #66CD00">
+	<div style="background-color: #ffba00"><br>
+	<form method="get" action="/loggout" class="loggout">
+			<input type="submit" name="loggout" value="LOGOUT">
+	</form>
+	<img src = "logo.png" height="100px" width="100px" style="float: left; margin-left: 100px;">
+	<h1 style="font-size: 40px; color: brown; font-style: italic; font-family: Comic Sans MS;">VegieGo</h1>
+	</div><br><br>
+		<section style="float: left; margin-left: 200px; font-family: Arial;"><i>Hi <%= username %></i></section>
+		<section style= "float: right; margin-right: 100px; padding: 20px 20px 50px 20px;">
+			<form action="/home" method="get">
+				<input type="submit" value="HOME">
+			</form>
+		</section>
+	<center><h1>CHECK LIST</h1></center>
+	<center><table style="background-color: white; border: solid black;">
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT NAME&nbsp;&nbsp;&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT RATE(per kg)&nbsp;&nbsp;&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT QUANTITY&nbsp;&nbsp;&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;AMOUNT(Rs.)&nbsp;&nbsp;&nbsp;&nbsp;</th>
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+			<% for(var i=0; i<itemsincart.length; i++) {%>
+				<tr>
+					<td><center><%= itemsincart[i].productname %></center></td>
+					<td><center><%= itemsincart[i].productrate %>/kg</center></td>
+					<td><center><%= itemsincart[i].productqty %></center></td>
+					<td><center><%= itemsincart[i].amount %></center></td>
+					<td>
+						<form method="post" action="/removefromcl"><input type="hidden" name="id" value="<%= itemsincart[i].id %>">
+							<center><input type="submit" name="removefromchecklist" value="REMOVE"></center>
+						</form></td>
+				</tr>
+        	<% } %>
+	</table></center><br>
+	<center><strong><section style="font-family: Arial; font-size: 20px;">TOTAL: <%= total[0].totalamt %></section></strong></center><br>
+	<center><form method="post" action="/buynow">
+			<input type="hidden" name="total" value="<%= total[0].totalamt %>">
+			<input type="hidden" name="username" value="<%= username %>">
+			<input type="submit" name="buynow" value="BUY NOW">
+		
+		
+	</form></center>
+</body>
+</html>

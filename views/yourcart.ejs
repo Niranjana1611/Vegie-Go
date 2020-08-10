@@ -1,0 +1,46 @@
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>	
+<body style="background-color: #66CD00">
+	<div style="background-color: #ffba00"><br>
+	<form method="get" action="/loggout" class="loggout">
+			<input type="submit" name="loggout" value="LOGOUT">
+	</form>
+	<img src = "logo.png" height="100px" width="100px" style="float: left; margin-left: 100px;">
+	<h1 style="font-size: 40px; color: brown; font-style: italic; font-family: Comic Sans MS;">VegieGo</h1>
+	</div><br><br>
+		<section style="float: left; margin-left: 200px; font-family: Arial; f
+		"><i>Hi <%= username %></i></section>
+		<section style="float: right; margin-right: 100px; padding: 20px 20px 50px 20px;">
+			<form action="/placedorder" method="post">
+				<input type="submit" value="ORDERS PLACED">
+			</form></section>
+		<section style= "float: right; margin-right: 100px; padding: 20px 20px 50px 20px;">
+			<form action="/home" method="get">
+				<input type="submit" value="HOME">
+			</form>
+		</section>
+	<center><h1>YOUR CART</h1></center>
+	<center><table>
+		<th colspan="2"></th>
+			<% for(var i=0; i<itemsincart.length; i++) {%>
+				<tr>
+					<td style="border-top: solid black; border-bottom: solid black; border-left: solid black;"><center><img src="<%= itemsincart[i].productimage %>"></center></td><br>
+					<td style="border-top: solid black; border-bottom: solid black; border-right: solid black;"><center><br><%= itemsincart[i].productname %><br>
+					<br>RATE: Rs.<%= itemsincart[i].productrate %>/kg<br>
+					<form action="/order" method="post">
+						<br>&nbsp;&nbsp;&nbsp;&nbsp;QUANTITY (in g) : <input type="number" id="productqty" name="productqty" min="0" max="100000" required>&nbsp;&nbsp;&nbsp;&nbsp;
+					<br><br>
+						<input type="hidden" id="id" name="id" value="<%= itemsincart[i].id %>">
+						<input type="hidden" id="productname" name="productname" value="<%= itemsincart[i].productname %>">
+						<input type="hidden" id="productrate" name="productrate" value="<%= itemsincart[i].productrate %>">
+						<input type="submit" value="ORDER NOW"></form>
+					<form action="/removefromcart" method="post">
+						<input type="hidden" id="id" name="id" value="<%= itemsincart[i].id %>">
+						<input type="submit" value="REMOVE"></form>  
+					</center></td>
+        	<% } %>
+	</table></center>
+</body>
+</html>
